@@ -74,7 +74,7 @@ public class PrometheusConfiguration extends GlobalConfiguration {
             return urlName;
         }
 
-        return urlName + (additionalPath.startsWith("/") ? "" :  "/") + additionalPath;
+        return urlName + additionalPath;
     }
 
     public void setPath(String path) {
