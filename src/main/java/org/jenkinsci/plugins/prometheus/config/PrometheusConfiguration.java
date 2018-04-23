@@ -82,6 +82,9 @@ public class PrometheusConfiguration extends GlobalConfiguration {
         path = path.startsWith("/") ? path.substring(1) : path;
         List<String> pathParts = Arrays.asList(path.split("/", 2));
         urlName = pathParts.get(0);
+        // the split above stripped the slash and now add it back without this,
+        // request.getRestOfPath().equals(PrometheusConfiguration.get().getAdditionalPath())
+        // may not work.
         additionalPath = (pathParts.size() > 1) ? "/" + pathParts.get(1) : "";
     }
 
